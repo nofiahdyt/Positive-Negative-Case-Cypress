@@ -1,6 +1,9 @@
 describe('template spec', () => {
-  it('Success Register', () => {
+  beforeEach(() => {
+    // we will create a new alias before each test
     cy.visit('https://demowebshop.tricentis.com/register')
+  })
+  it('Success Register', () => {
     cy.get('#gender-female')
     cy.get('#FirstName').type('Nofia')
     cy.get('#LastName').type('Hidayati')
@@ -11,7 +14,6 @@ describe('template spec', () => {
     // cy.get('.page-body > .buttons > .button-1').click()
   })
   it('Failed Register - Wrong Confirm Password', () => {
-    cy.visit('https://demowebshop.tricentis.com/register')
     cy.get('#gender-female')
     cy.get('#FirstName').type('Nofia')
     cy.get('#LastName').type('Hidayati')
@@ -22,7 +24,6 @@ describe('template spec', () => {
   //   cy.get('.page-body > .buttons > .button-1').click()
   })
   it('Failed Register - Invalid Email', () => {
-    cy.visit('https://demowebshop.tricentis.com/register')
     cy.get('#gender-female')
     cy.get('#FirstName').type('Nofia')
     cy.get('#LastName').type('Hidayati')
@@ -33,7 +34,6 @@ describe('template spec', () => {
   //   cy.get('.page-body > .buttons > .button-1').click()
   })
   it('Success Register - Gender Are Not Choice', () => {
-    cy.visit('https://demowebshop.tricentis.com/register')
     cy.get('#FirstName').type('Nofia')
     cy.get('#LastName').type('Hidayati')
     cy.get('#Email').type('nofia15002000@gmail.com')
